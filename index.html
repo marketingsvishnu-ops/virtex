@@ -1,199 +1,455 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="India's T20 World Cup triumph and the BCCI's record cash reward.">
-  <title>India's T20 World Cup Triumph | Sports Desk</title>
-  <style>
-    :root {
-      --ink: #17202a;
-      --muted: #687381;
-      --line: #e5e9ee;
-      --accent: #c62828;
-      --paper: #ffffff;
-      --soft: #f4f6f8;
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; color: var(--ink); background: #f1f3f5; font-family: Arial, Helvetica, sans-serif; line-height: 1.65; }
-    a { color: inherit; text-decoration: none; }
-    .topline { background: #101820; color: #fff; font-size: 12px; }
-    .topline-inner, .masthead, nav, .layout, footer { width: min(1180px, calc(100% - 36px)); margin: auto; }
-    .topline-inner { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; }
-    .masthead { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; }
-    .logo { font-size: clamp(24px, 4vw, 36px); line-height: 1; font-weight: 900; letter-spacing: -1.4px; }
-    .logo span { color: var(--accent); }
-    .tagline { color: var(--muted); font-size: 12px; margin-top: 7px; }
-    .search { border: 1px solid var(--line); border-radius: 22px; background: #fff; padding: 9px 14px; color: var(--muted); font-size: 13px; }
-    nav { display: flex; overflow-x: auto; gap: 25px; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); white-space: nowrap; font-size: 13px; font-weight: 700; }
-    nav a:first-child { color: var(--accent); }
-    .layout { display: grid; grid-template-columns: minmax(0, 760px) minmax(240px, 320px); gap: 30px; align-items: start; padding: 30px 0 55px; }
-    article, .sidebar-card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; }
-    article { padding: clamp(20px, 4vw, 42px); }
-    .breadcrumb { color: var(--muted); font-size: 12px; margin-bottom: 15px; }
-    .category { color: var(--accent); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; }
-    h1 { font-size: clamp(30px, 4.2vw, 43px); line-height: 1.14; letter-spacing: -1.1px; margin: 10px 0 14px; }
-    .dek { color: #505b67; font-size: 18px; line-height: 1.5; margin: 0 0 20px; }
-    .meta { display: flex; flex-wrap: wrap; gap: 8px 15px; color: var(--muted); font-size: 12px; padding: 14px 0 20px; border-top: 1px solid var(--line); }
-    .hero { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: 5px; background: #e7ebef; }
-    .caption { color: var(--muted); font-size: 11px; margin-top: 7px; }
-    .share-row { display: flex; flex-wrap: wrap; gap: 8px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-    .share-row button { cursor: pointer; border: 1px solid var(--line); border-radius: 4px; background: #fff; padding: 7px 12px; font-weight: 700; font-size: 12px; }
-    .article-body { font-family: Georgia, 'Times New Roman', serif; font-size: 18px; color: #26313c; }
-    .article-body p { margin: 22px 0; }
-    .article-body h2 { font-family: Arial, Helvetica, sans-serif; font-size: 23px; line-height: 1.3; margin-top: 30px; }
-    .factbox { background: var(--soft); border-left: 4px solid var(--accent); padding: 16px 19px; margin: 24px 0; font-family: Arial, Helvetica, sans-serif; font-size: 15px; }
-    .sidebar-card { padding: 20px; margin-bottom: 18px; }
-    .sidebar-title { font-size: 17px; margin: 0 0 15px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
-    .story { padding: 12px 0; border-bottom: 1px solid var(--line); }
-    .story:last-child { border-bottom: 0; padding-bottom: 0; }
-    .story small { color: var(--accent); font-size: 10px; font-weight: 800; text-transform: uppercase; }
-    .story h3 { font-size: 14px; line-height: 1.45; margin: 4px 0 0; }
-    .newsletter p { font-size: 13px; color: var(--muted); }
-    .newsletter input { width: 100%; padding: 10px; border: 1px solid var(--line); border-radius: 4px; margin-bottom: 9px; }
-    .newsletter button { width: 100%; background: var(--accent); color: white; border: 0; padding: 11px; border-radius: 4px; font-weight: 700; cursor: pointer; }
-    footer { border-top: 1px solid var(--line); color: var(--muted); padding: 22px 0 35px; font-size: 12px; }
-    @media (max-width: 820px) { .layout { grid-template-columns: 1fr; gap: 20px; padding-top: 18px; } .sidebar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; } .sidebar-card { margin: 0; } }
-    @media (max-width: 540px) { .topline-inner, .masthead, nav, .layout, footer { width: min(100% - 24px, 1180px); } .masthead { padding: 17px 0; } .search { display: none; } nav { gap: 18px; } .sidebar { grid-template-columns: 1fr; } article { padding: 19px; } .article-body { font-size: 17px; } }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo</title>
 
-    /* 3D visual upgrade */
-    body {
-      background: radial-gradient(ellipse at top, #e0ebff 0%, #eef2f8 42%, #dce3ee 100%);
-      perspective: 1400px;
-    }
-    .topline { background: linear-gradient(110deg, #071629, #173a68 55%, #0b1b32); box-shadow: 0 5px 18px rgba(9, 24, 48, .28); }
-    .masthead { position: relative; }
-    .logo { text-shadow: 0 2px 0 #fff, 0 5px 0 rgba(12, 34, 61, .08), 0 9px 18px rgba(20, 35, 55, .15); }
-    .logo span { text-shadow: 0 3px 0 #8c1515, 0 7px 12px rgba(198, 40, 40, .25); }
-    .search { box-shadow: inset 0 2px 4px rgba(255,255,255,.95), 0 5px 12px rgba(27, 48, 79, .12); }
-    nav { border-radius: 0 0 12px 12px; background: linear-gradient(#fff, #edf2f8); padding-left: 16px; padding-right: 16px; box-shadow: 0 8px 18px rgba(22, 41, 70, .09); }
-    nav a { transition: color .2s ease, transform .2s ease, text-shadow .2s ease; }
-    nav a:hover { color: var(--accent); transform: translateY(-2px); text-shadow: 0 4px 8px rgba(198,40,40,.2); }
-    .layout { perspective: 1500px; }
-    article, .sidebar-card {
-      border: 1px solid rgba(255,255,255,.9);
-      border-radius: 14px;
-      background: linear-gradient(145deg, #ffffff 0%, #fbfcff 60%, #f0f4fa 100%);
-      box-shadow: 0 4px 0 #d6deea, 0 12px 22px rgba(29, 47, 76, .10), 0 28px 55px rgba(29, 47, 76, .10), inset 0 1px 0 #fff;
-      transform: translateZ(0);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    article:hover, .sidebar-card:hover { transform: translateY(-3px); box-shadow: 0 5px 0 #d1dbea, 0 18px 30px rgba(29,47,76,.13), 0 35px 65px rgba(29,47,76,.12), inset 0 1px 0 #fff; }
-    .category { display: inline-block; padding: 5px 10px; border-radius: 20px; color: #fff; background: linear-gradient(135deg, #e84b4b, #9d1717); box-shadow: 0 3px 0 #7f1515, 0 7px 12px rgba(198,40,40,.2); }
-    h1 { text-shadow: 0 2px 0 #fff, 0 5px 14px rgba(25, 41, 62, .08); }
-    .hero {
-      border-radius: 11px;
-      border: 1px solid rgba(255,255,255,.95);
-      box-shadow: 0 5px 0 #cbd5e2, 0 13px 25px rgba(13, 33, 61, .22), 0 25px 40px rgba(13,33,61,.12);
-      transform: perspective(900px) rotateX(1deg);
-      transition: transform .35s ease, box-shadow .35s ease;
-    }
-    .hero:hover { transform: perspective(900px) rotateX(0deg) translateY(-3px) scale(1.005); box-shadow: 0 7px 0 #cbd5e2, 0 20px 34px rgba(13,33,61,.24); }
-    .share-row button { border: 1px solid #d9e1ed; background: linear-gradient(#fff, #e9eef6); box-shadow: 0 3px 0 #cbd5e2, 0 6px 12px rgba(25,43,70,.09); transition: transform .15s ease, box-shadow .15s ease; }
-    .share-row button:hover { transform: translateY(-2px); box-shadow: 0 5px 0 #cbd5e2, 0 10px 16px rgba(25,43,70,.14); }
-    .factbox { border-radius: 0 10px 10px 0; background: linear-gradient(135deg, #eef4ff, #e2eaf7); box-shadow: inset 0 1px 0 #fff, 0 5px 14px rgba(23,50,88,.08); }
-    .sidebar-title { text-shadow: 0 2px 0 #fff; }
-    .story { transition: padding-left .2s ease; }
-    .story:hover { padding-left: 6px; }
-    .newsletter button { background: linear-gradient(135deg, #e84b4b, #9d1717); box-shadow: 0 4px 0 #7f1515, 0 8px 14px rgba(198,40,40,.22); }
-    .newsletter button:active { transform: translateY(3px); box-shadow: 0 1px 0 #7f1515; }
-    footer { text-shadow: 0 1px 0 #fff; }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
 
-  </style>
+body{
+  background:#0f1020;
+  color:white;
+}
+
+.container{
+  display:flex;
+  flex-direction:row-reverse;
+  min-height:100vh;
+}
+
+.demo{
+  width:70%;
+  background:#111;
+  position:relative;
+}
+
+iframe{
+  width:100%;
+  height:100vh;
+  border:none;
+}
+
+.right{
+  width:30%;
+  padding:30px 22px;
+  background:linear-gradient(180deg,#181a35,#0b0c18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-y:auto;
+}
+
+.box{
+  width:100%;
+  background:rgba(10,10,10,.88);
+  border:1px solid #d4af37;
+  border-radius:22px;
+  padding:26px 20px;
+  text-align:center;
+  box-shadow:0 0 35px rgba(212,175,55,.28);
+}
+
+.badge{
+  display:inline-block;
+  background:#d4af37;
+  color:#111;
+  padding:8px 18px;
+  border-radius:30px;
+  font-weight:800;
+  margin-bottom:16px;
+}
+
+h1{
+  font-size:34px;
+  color:#ffd86b;
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
+
+.sub{
+  font-size:17px;
+  line-height:1.5;
+  margin-bottom:22px;
+  color:#eee;
+}
+
+.features{
+  display:grid;
+  gap:12px;
+  margin:22px 0;
+}
+
+.feature{
+  background:linear-gradient(90deg,#1b1b1b,#2b2208);
+  border:1px solid rgba(212,175,55,.55);
+  padding:14px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:700;
+}
+
+.feature span{
+  color:#ffd86b;
+}
+
+/* Signup Button */
+.signup-btn{
+  display:inline-block;
+  margin-top:8px;
+  padding:9px 16px;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  border-radius:9px;
+  font-size:15px;
+  font-weight:800;
+  border:1px solid #1ebe5d;
+  transition:.3s;
+}
+
+.signup-btn:hover{
+  background:#1ebe5d;
+  transform:scale(1.03);
+}
+
+.website-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:16px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.website-row a{
+  text-decoration:none;
+}
+
+.website{
+  color:#25D366;
+}
+
+.whatsapp-small{
+  color:#ffd86b;
+}
+
+.cta{
+  display:block;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  padding:17px;
+  border-radius:16px;
+  font-size:20px;
+  font-weight:900;
+  margin-top:22px;
+  box-shadow:0 8px 18px rgba(37,211,102,.35);
+  transition:.3s;
+}
+
+.cta:hover{
+  transform:scale(1.03);
+  background:#1ebe5d;
+}
+
+/* Floating Signup Button */
+.floating-signup{
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:50;
+  background:#ff1744;
+  color:#fff;
+  padding:12px 24px;
+  border-radius:8px;
+  font-size:18px;
+  font-weight:900;
+  border:3px solid #fff;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(255,23,68,0.6);
+  transition:.3s;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.floating-signup:hover{
+  transform:translateX(-50%) scale(1.08);
+  background:#ff5722;
+  box-shadow:0 12px 25px rgba(255,23,68,0.8);
+}
+
+.trust{
+  margin-top:16px;
+  color:#ccc;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.footer{
+  margin-top:18px;
+  font-size:12px;
+  color:#aaa;
+  line-height:1.5;
+}
+
+.bonus-popup{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  background:rgba(0,0,0,.78);
+}
+
+.bonus-popup[hidden]{
+  display:none;
+}
+
+.bonus-dialog{
+  position:relative;
+  width:min(100%,420px);
+  padding:34px 24px 28px;
+  border:2px solid #d4af37;
+  border-radius:16px;
+  background:linear-gradient(145deg,#24210f,#111218 70%);
+  text-align:center;
+  box-shadow:0 18px 60px rgba(0,0,0,.65);
+  animation:popup-enter .24s ease-out;
+}
+
+.bonus-close{
+  position:absolute;
+  top:8px;
+  right:12px;
+  border:0;
+  background:transparent;
+  color:#ddd;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+}
+
+.bonus-dialog h2{
+  margin-bottom:10px;
+  color:#ffd86b;
+  font-size:30px;
+}
+
+.bonus-dialog p{
+  margin-bottom:22px;
+  color:#eee;
+  line-height:1.5;
+}
+
+.bonus-claim{
+  display:block;
+  padding:14px 18px;
+  border-radius:8px;
+  background:#25D366;
+  color:#fff;
+  font-size:17px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.bonus-claim:hover{
+  background:#1ebe5d;
+}
+
+@keyframes popup-enter{
+  from{opacity:0;transform:translateY(10px) scale(.97)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .bonus-dialog{animation:none}
+}
+
+@media(max-width:768px){
+  .container{
+    flex-direction:column-reverse;
+  }
+
+  .demo,
+  .right{
+    width:100%;
+  }
+
+  iframe{
+    height:500px;
+  }
+
+  .right{
+    padding:20px;
+  }
+}
+
+@media(max-width:480px){
+  h1{
+    font-size:28px;
+  }
+
+  .sub{
+    font-size:16px;
+  }
+
+  .feature{
+    font-size:16px;
+    padding:12px;
+  }
+
+  .signup-btn{
+    font-size:14px;
+    padding:8px 13px;
+  }
+
+  .cta{
+    font-size:18px;
+    padding:15px;
+  }
+
+  .website-row{
+    flex-direction:column;
+    gap:8px;
+  }
+}
+</style>
+
 </head>
+
 <body>
-  <div class="topline">
-    <div class="topline-inner"><span>SPORTS • CRICKET • LATEST UPDATES</span><span>Independent sample news layout</span></div>
+
+<div class="bonus-popup" id="bonusPopup" role="dialog" aria-modal="true" aria-labelledby="bonusTitle">
+  <div class="bonus-dialog">
+    <button class="bonus-close" id="bonusClose" type="button" aria-label="Close bonus popup">&times;</button>
+    <h2 id="bonusTitle">Claim 10% Bonus</h2>
+    <p>Sign up now and get started with the deposit bonus.</p>
+    <a class="bonus-claim" href="http://www.multicric.com/?code=161sky">🔥 Claim Bonus &amp; Sign Up</a>
   </div>
-  <header class="masthead">
-    <div>
-      <a class="logo" href="#" aria-label="Sports Desk home">SPORTS<span>DESK</span></a>
-      <div class="tagline">The stories behind the score</div>
+</div>
+
+<div class="container">
+
+  <div class="demo">
+    <a href="http://www.multicric.com/?code=266ice" target="_blank" rel="noopener noreferrer" class="floating-signup">🔥 CLICK ON SIGNUP 🔥</a>
+    <iframe src="http://www.multicric.com/?code=266ice"></iframe>
+  </div>
+
+  <div class="right">
+    <div class="box">
+
+  <div class="badge">AUTO WEBSITE</div>
+
+  <h1>Get Your ID Now</h1>
+
+  <p class="sub">
+    Fast auto website service with easy deposit support.
+    New users can start quickly through WhatsApp.
+  </p>
+
+  <div class="features">
+
+    <div class="feature">
+      Minimum Deposit: <span>₹100 Only</span>
     </div>
-    <div class="search">⌕ &nbsp; Search news</div>
-  </header>
-  <nav aria-label="Main navigation">
-    <a href="#">HOME</a><a href="#">CRICKET</a><a href="#">FOOTBALL</a><a href="#">TENNIS</a><a href="#">OTHER SPORTS</a><a href="#">UAE</a><a href="#">WORLD</a>
-  </nav>
 
-  <main class="layout">
-    <article>
-      <div class="breadcrumb">Home / Sports / Cricket / International</div>
-      <div class="category">Cricket · India</div>
-      <h1>India's T20 World Cup triumph earns a record BCCI bonus</h1>
-      <p class="dek">The cricket board announced a ₹131 crore reward for the title-winning squad after India's historic campaign.</p>
-      <div class="meta">
-        <span>By Sports Desk</span><span>March 10, 2026</span><span>Updated: March 10, 2026</span><span>3 min read</span>
-      </div>
+    <div class="feature">
+      Welcome Bonus: <span>10%</span>
+    </div>
 
-      <img class="hero" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCIgdmlld0JveD0iMCAwIDE2MDAgOTAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InNreSIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjMDcxYTM4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjE0Zjc4Ii8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImZpZWxkIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMzMTgzNGMiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwZDRjMzEiLz48L2xpbmVhckdyYWRpZW50PjxyYWRpYWxHcmFkaWVudCBpZD0iZ2xvdyI+PHN0b3Agc3RvcC1jb2xvcj0iI2ZmZmRlMSIgc3RvcC1vcGFjaXR5PSIuOTUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNkN2VmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCIgZmlsbD0idXJsKCNza3kpIi8+PGNpcmNsZSBjeD0iMjMwIiBjeT0iMTMwIiByPSIxOTAiIGZpbGw9InVybCgjZ2xvdykiLz48Y2lyY2xlIGN4PSIxMzYwIiBjeT0iMTIwIiByPSIyMTAiIGZpbGw9InVybCgjZ2xvdykiLz48ZyBmaWxsPSIjZjhmYmZmIj48cGF0aCBkPSJNMTAwIDkwaDI2MHY4SDEwMHpNMTIwIDY4aDIyMHY1SDEyMHpNMTI2MCA3MGgyMjB2NmgtMjIwek0xMjkwIDkyaDE4MHY1aC0xODB6Ii8+PGcgb3BhY2l0eT0iLjg1Ij48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxODAiIHI9IjQiLz48Y2lyY2xlIGN4PSI0MjAiIGN5PSIxMTAiIHI9IjMiLz48Y2lyY2xlIGN4PSI2ODAiIGN5PSIxNTUiIHI9IjMiLz48Y2lyY2xlIGN4PSI5NDAiIGN5PSI4NSIgcj0iNCIvPjxjaXJjbGUgY3g9IjExNTAiIGN5PSIxNzAiIHI9IjMiLz48Y2lyY2xlIGN4PSIxNDcwIiBjeT0iMjIwIiByPSI0Ii8+PC9nPjwvZz48cGF0aCBkPSJNMCAzNjUgUTIyMCAyNjAgNDIwIDM1MCBUODAwIDMzMCBUMTIwMCAzNDUgVDE2MDAgMzE1IFY2MDAgSDBaIiBmaWxsPSIjMTcyZjRjIi8+PHBhdGggZD0iTTAgNDA1IFEyNTAgMzIwIDUwMCA0MDUgVDEwMDAgMzkwIFQxNjAwIDM5MCBWNjI1IEgwWiIgZmlsbD0iIzI2M2U1YSIvPjxnIGZpbGw9IiNmNmYxZGQiIG9wYWNpdHk9Ii45Ij48cGF0aCBkPSJNNjAgMzY1bDE1LTMwIDE1IDMwek0xMjAgMzkwbDEyLTI0IDEyIDI0ek0yMDUgMzUwbDE1LTMyIDE1IDMyek0zMTAgMzgybDEzLTI2IDEzIDI2ek00MjAgMzY1bDE0LTI4IDE0IDI4ek01NDAgMzkwbDEyLTI0IDEyIDI0ek02NTAgMzUwbDE1LTMwIDE1IDMwek03NzAgMzc1bDEzLTI3IDEzIDI3ek05MDAgMzYwbDE1LTMwIDE1IDMwek0xMDIwIDM5MGwxMi0yNCAxMiAyNHpNMTEzNSAzNTJsMTQtMjggMTQgMjh6TTEyNTAgMzgwbDEzLTI1IDEzIDI1ek0xMzgwIDM1MGwxNS0zMSAxNSAzMXpNMTUwMCAzODBsMTItMjUgMTIgMjV6Ii8+PC9nPjxnIGZpbGw9IiNlN2VkZjMiIG9wYWNpdHk9Ii43Ij48Y2lyY2xlIGN4PSIxMDAiIGN5PSI0MzAiIHI9IjUiLz48Y2lyY2xlIGN4PSIxODAiIGN5PSI0NTAiIHI9IjQiLz48Y2lyY2xlIGN4PSIyODUiIGN5PSI0MjUiIHI9IjUiLz48Y2lyY2xlIGN4PSIzODAiIGN5PSI0NTUiIHI9IjQiLz48Y2lyY2xlIGN4PSI1MDAiIGN5PSI0MzAiIHI9IjUiLz48Y2lyY2xlIGN4PSI2MTAiIGN5PSI0NTAiIHI9IjQiLz48Y2lyY2xlIGN4PSI3MjAiIGN5PSI0MjUiIHI9IjUiLz48Y2lyY2xlIGN4PSI4NDAiIGN5PSI0NTUiIHI9IjQiLz48Y2lyY2xlIGN4PSI5NjAiIGN5PSI0MzAiIHI9IjUiLz48Y2lyY2xlIGN4PSIxMDgwIiBjeT0iNDUwIiByPSI0Ii8+PGNpcmNsZSBjeD0iMTIwMCIgY3k9IjQyNSIgcj0iNSIvPjxjaXJjbGUgY3g9IjEzMjAiIGN5PSI0NTAiIHI9IjQiLz48Y2lyY2xlIGN4PSIxNDQwIiBjeT0iNDI1IiByPSI1Ii8+PGNpcmNsZSBjeD0iMTUzMCIgY3k9IjQ1NSIgcj0iNCIvPjwvZz48cGF0aCBkPSJNMCA1MjAgUTgwMCA0MjAgMTYwMCA1MjAgVjkwMCBIMFoiIGZpbGw9InVybCgjZmllbGQpIi8+PGVsbGlwc2UgY3g9IjgwMCIgY3k9IjY5MCIgcng9IjU1MCIgcnk9IjE3MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTZkNGE4IiBzdHJva2Utd2lkdGg9IjUiIG9wYWNpdHk9Ii43Ii8+PGVsbGlwc2UgY3g9IjgwMCIgY3k9IjY5MCIgcng9IjMzMCIgcnk9IjEwMCIgZmlsbD0iIzc5YWQ2MiIgb3BhY2l0eT0iLjYiLz48cGF0aCBkPSJNNjkwIDYxMCBMOTEwIDYxMCBMOTUwIDgwMCBMNjUwIDgwMFoiIGZpbGw9IiNjOWI2OGIiLz48cGF0aCBkPSJNNzgwIDYyMHYxNjBNODIwIDYyMHYxNjAiIHN0cm9rZT0iI2VmZTFiZCIgc3Ryb2tlLXdpZHRoPSI0IiBvcGFjaXR5PSIuNiIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4NSA0NjUpIj48Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iMzAiIGZpbGw9IiNiNzdjNTQiLz48cGF0aCBkPSJNLTMwIC04US0yOCAtNDIgNCAtMzJRMjYgLTI1IDI4IC01TDE1IC0xNkwtMTIgLTE4WiIgZmlsbD0iIzE1MWYyZSIvPjxwYXRoIGQ9Ik0tMzUgMzVRMCAyMCAzNCAzOEw1NSAxNTVMLTU1IDE1NVoiIGZpbGw9IiMxNDVkYjYiIHN0cm9rZT0iI2U3ZjRmZiIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHBhdGggZD0iTS0yNSA1M0wtNzIgMTAwTC01MiAxMjFMLTggODJNMjcgNTJMNzAgODhMNTggMTEyTDE2IDgzIiBmaWxsPSJub25lIiBzdHJva2U9IiNiNzdjNTQiIHN0cm9rZS13aWR0aD0iMTgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMjggMTU1TC0zOCAyNDVMLTUgMjQ1TDggMTcwTDI0IDI0NUw1NiAyNDVMMzggMTU1WiIgZmlsbD0iI2YwZjNmNyIvPjxwYXRoIGQ9Ik0tNDUgMjQ1aDQydjE0aC00OHpNMjAgMjQ1aDQzdjE0SDIweiIgZmlsbD0iIzExMTgyNyIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDkwIDQ2NSkiPjxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIzMCIgZmlsbD0iIzlkNjU0NyIvPjxwYXRoIGQ9Ik0tMzAgLThRLTI4IC00MiA0IC0zMlEyNiAtMjUgMjggLTVMMTUgLTE2TC0xMiAtMThaIiBmaWxsPSIjMTcxYzI1Ii8+PHBhdGggZD0iTS0zNSAzNVEwIDIwIDM0IDM4TDU1IDE1NUwtNTUgMTU1WiIgZmlsbD0iIzE3NjdjOCIgc3Ryb2tlPSIjZTdmNGZmIiBzdHJva2Utd2lkdGg9IjUiLz48cGF0aCBkPSJNLTI1IDUzTC03MiAxMDBMLTUyIDEyMUwtOCA4Mk0yNyA1Mkw3MCA4OEw1OCAxMTJMMTYgODMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzlkNjU0NyIgc3Ryb2tlLXdpZHRoPSIxOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0yOCAxNTVMLTM4IDI0NUwtNSAyNDVMOCAxNzBMMjQgMjQ1TDU2IDI0NUwzOCAxNTVaIiBmaWxsPSIjZjBmM2Y3Ii8+PHBhdGggZD0iTS00NSAyNDVoNDJ2MTRoLTQ4ek0yMCAyNDVoNDN2MTRIMjB6IiBmaWxsPSIjMTExODI3Ii8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgwMCA0NjApIj48Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iMzUiIGZpbGw9IiNiNzdjNTQiLz48cGF0aCBkPSJNLTM1IC05US0yOCAtNDcgOCAtMzZRMzIgLTI4IDMyIC01TDEzIC0xOEwtMTIgLTIwWiIgZmlsbD0iIzExMTgyNyIvPjxwYXRoIGQ9Ik0tNDMgMzhRMCAxOCA0MyAzOEw2MyAxNjVMLTYzIDE2NVoiIGZpbGw9IiMwYzU4YWQiIHN0cm9rZT0iI2Y0ZmJmZiIgc3Ryb2tlLXdpZHRoPSI2Ii8+PHBhdGggZD0iTS0zNSA1NUwtODMgOTVMLTY3IDExNkwtMTcgODNNMzUgNTVMODQgOTNMNjggMTE2TDE4IDgzIiBmaWxsPSJub25lIiBzdHJva2U9IiNiNzdjNTQiIHN0cm9rZS13aWR0aD0iMjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMzUgMTY1TC00NSAyNTVMLTggMjU1TDggMTgzTDI1IDI1NUw2MiAyNTVMNDAgMTY1WiIgZmlsbD0iI2Y1ZjZmOCIvPjxwYXRoIGQ9Ik0tNTMgMjU1aDQ3djE1aC01M3pNMjIgMjU1aDQ4djE1SDIyeiIgZmlsbD0iIzEwMTgyNyIvPjxwYXRoIGQ9Ik0tMzggNDVMMCA3MEwzOCA0NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTVlZGY3IiBzdHJva2Utd2lkdGg9IjQiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC04MykiPjxwYXRoIGQ9Ik0tMTggMTVMLTEwIC0yMEwxMCAtMjBMMTggMTVaIiBmaWxsPSIjZDdiNDVhIiBzdHJva2U9IiNmZmYxYWQiIHN0cm9rZS13aWR0aD0iNCIvPjxyZWN0IHg9Ii0zMiIgeT0iMTUiIHdpZHRoPSI2NCIgaGVpZ2h0PSI5IiByeD0iMyIgZmlsbD0iI2U3Yzk2ZSIvPjxwYXRoIGQ9Ik0tMzggMjVIMzhMMzAgMzhILTMwWiIgZmlsbD0iI2Q3YjQ1YSIgc3Ryb2tlPSIjZmZmMWFkIiBzdHJva2Utd2lkdGg9IjMiLz48cGF0aCBkPSJNLTIyIC0yMEwtMjggLTM4TTIyIC0yMEwyOCAtMzgiIHN0cm9rZT0iI2U3Yzk2ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L2c+PC9nPjxnIGZpbGw9IiNmZmI0M2QiPjxwYXRoIGQ9Ik0zMjAgMjQwbDEyIDI4IDI4IDEyLTI4IDEyLTEyIDI4LTEyLTI4LTI4LTEyIDI4LTEyeiIvPjxwYXRoIGQ9Ik0xMjYwIDI2NWw4IDE4IDE4IDgtMTggOC04IDE4LTgtMTgtMTgtOCAxOC04eiIvPjxwYXRoIGQ9Ik02NTAgMjg1bDcgMTUgMTUgNy0xNSA3LTcgMTUtNy0xNS0xNS03IDE1LTd6Ii8+PC9nPjxnIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ij48cGF0aCBkPSJNMzUwIDI1MGwyNSA0NS04IDQtMjUtNDV6TTEyODAgMjMwbDggNTAtOSAxLTgtNTB6TTU3MCAyMjBsLTEyIDQ4LTgtMiAxMi00OHpNMTAxMCAyNTBsLTIwIDQwLTgtNCAyMC00MHoiLz48L2c+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjE2MDAiIGhlaWdodD0iOTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIuMTUiIHN0cm9rZS13aWR0aD0iOCIvPjwvc3ZnPg==" alt="Illustrated cricket stadium with players celebrating a T20 championship">
-      <div class="caption">Custom cricket championship illustration embedded directly in this HTML file.</div>
+    <div class="feature">
+      Auto Website Support:
+      <a
+        class="signup-btn"
+        href="http://www.multicric.com/?code=266ice"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Click on Signup
+      </a>
+    </div>
 
-      <div class="share-row">
-        <button onclick="shareStory()">Share story</button>
-        <button onclick="window.print()">Print</button>
-        <button onclick="copyLink()">Copy link</button>
-      </div>
+    <div class="feature">
+      Quick Help:
+      <span>Deposit &amp; Withdrawal Support</span>
+    </div>
 
-      <div class="article-body">
-        <p>India's men's cricket team has received a major financial reward following its memorable T20 World Cup campaign. The Board of Control for Cricket in India (BCCI) announced a cash prize of ₹131 crore in recognition of the team's achievement.</p>
+  </div>
 
-        <p>The announcement followed India's victory over New Zealand in the final at Ahmedabad's Narendra Modi Stadium. The result added another milestone to India's record in the men's T20 World Cup.</p>
+  <div class="website-row">
 
-        <div class="factbox"><strong>At a glance</strong><br>Announced reward: ₹131 crore<br>Presented by: Board of Control for Cricket in India (BCCI)<br>Occasion: India's 2026 men's T20 World Cup title</div>
+    <a
+      class="website"
+      href="http://www.multicric.com/?code=266ice"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      🌐 http://www.multicric.com/?code=266ice
+    </a>
 
-        <h2>A reward beyond the tournament prize</h2>
-        <p>The board's bonus was separate from the prize money awarded by the International Cricket Council for winning the tournament. It recognised the contribution of the players, coaching and support staff, and selectors throughout the campaign.</p>
+    <a
+      class="whatsapp-small"
+      href="https://wa.me/+447523709988"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      💬 WhatsApp
+    </a>
 
-        <p>In its announcement, the BCCI congratulated the team on the achievement and wished the players and staff continued success. The reward also continued the board's practice of recognising major international title wins with additional cash awards.</p>
+  </div>
 
-        <h2>Another milestone for Indian cricket</h2>
-        <p>The victory strengthened India's place among the leading teams in the shortest international format. Attention will now turn to the team's next targets as it builds on the success of the World Cup campaign.</p>
+  <a
+    class="cta"
+    href="https://wa.me/+447523709988?text=Hello%20I%20want%20new%20multicric%20ID"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    📲 WhatsApp Now
+  </a>
 
-        <p><em>This is an independently written sample article for a website template. It is not the original Khaleej Times article. Verify facts and update the copy before publishing.</em></p>
-      </div>
-    </article>
+  <p class="trust">
+    ✅ Trusted multicric Support<br>
+    ✅ Simple Process<br>
+    ✅ Fast Response
+  </p>
 
-    <aside class="sidebar">
-      <section class="sidebar-card">
-        <h2 class="sidebar-title">Top Stories</h2>
-        <div class="story"><small>Cricket</small><h3>India celebrate another landmark in T20 cricket</h3></div>
-        <div class="story"><small>Football</small><h3>Clubs prepare for a busy run of fixtures</h3></div>
-        <div class="story"><small>Tennis</small><h3>Tour contenders look ahead to the next event</h3></div>
-        <div class="story"><small>UAE Sports</small><h3>Weekend sports calendar: events to follow</h3></div>
-      </section>
-      <section class="sidebar-card newsletter">
-        <h2 class="sidebar-title">News briefing</h2>
-        <p>Get a sample daily sports briefing in your inbox.</p>
-        <form onsubmit="event.preventDefault(); alert('Demo form only — connect an email service to enable subscriptions.');">
-          <input type="email" placeholder="Email address" aria-label="Email address" required>
-          <button type="submit">Sign up</button>
-        </form>
-      </section>
-    </aside>
-  </main>
+  <div class="footer">
+    18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
+  </div>
 
-  <footer>
-    <strong>SPORTSDESK</strong><br>
-    Demo news template · Replace sample stories, images and branding before publishing.
-  </footer>
+</div>
 
-  <script>
-    function shareStory() {
-      if (navigator.share) {
-        navigator.share({ title: document.title, text: document.querySelector('h1').innerText, url: location.href });
-      } else {
-        copyLink();
-      }
-    }
-    function copyLink() {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(location.href).then(() => alert('Page link copied.'));
-      } else {
-        alert('Copy the page URL from your browser address bar.');
-      }
-    }
-  </script>
+  </div>
+
+</div>
+
+<script>
+const bonusPopup = document.getElementById('bonusPopup');
+const bonusClose = document.getElementById('bonusClose');
+
+function closeBonusPopup(){
+  bonusPopup.hidden = true;
+}
+
+bonusClose.addEventListener('click', closeBonusPopup);
+bonusPopup.addEventListener('click', (event) => {
+  if(event.target === bonusPopup) closeBonusPopup();
+});
+document.addEventListener('keydown', (event) => {
+  if(event.key === 'Escape') closeBonusPopup();
+});
+</script>
+
 </body>
 </html>
