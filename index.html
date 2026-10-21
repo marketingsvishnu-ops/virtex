@@ -1,455 +1,938 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo</title>
+<title>PULSE 5D | Immersive Fitness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
+:root {
+  --bg: #090812;
+  --panel: #12111f;
+  --purple: #a66cff;
+  --blue: #50d9ff;
+  --white: #f8f6ff;
+  --muted: #a09db6;
+  --line: rgba(255,255,255,.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: Inter, sans-serif;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+::selection { background: var(--purple); color: white; }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 75% 20%, rgba(100,53,190,.15), transparent 40%),
+    radial-gradient(ellipse at 15% 75%, rgba(44,153,205,.08), transparent 38%);
+}
+.ambient {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  background: rgba(130,70,255,.07);
+  filter: blur(100px);
 }
 
-body{
-  background:#0f1020;
-  color:white;
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 82px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  z-index: 20;
+  background: rgba(9,8,18,.72);
+  backdrop-filter: blur(18px);
+}
+.logo {
+  font-family: Orbitron, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+}
+.logo span { color: var(--blue); }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.nav a {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #c4c0d9;
+  transition: .25s;
+}
+.nav a:hover { color: var(--blue); }
+.nav .nav-cta {
+  background: var(--purple);
+  color: white;
+  padding: 13px 18px;
+}
+.nav .nav-cta:hover { background: var(--blue); color: #090812; }
+.menu-btn {
+  display: none;
+  color: var(--blue);
+  background: none;
+  border: 0;
+  font-size: 25px;
+  cursor: pointer;
 }
 
-.container{
-  display:flex;
-  flex-direction:row-reverse;
-  min-height:100vh;
+/* HERO */
+.hero {
+  min-height: 780px;
+  min-height: 100svh;
+  padding: 125px 7% 65px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--purple), var(--blue), transparent);
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--blue);
+}
+.eyebrow::before {
+  content: "";
+  width: 25px;
+  height: 1px;
+  background: currentColor;
+}
+.hero h1 {
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(48px, 6.8vw, 92px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -5px;
+  margin: 27px 0;
+}
+.hero h1 .gradient {
+  display: block;
+  color: transparent;
+  background: linear-gradient(100deg, var(--blue), var(--purple), #ed9dff);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.hero h1 .outline {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,.8);
+}
+.hero-copy p {
+  max-width: 410px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 20px;
+  background: linear-gradient(110deg, var(--purple), #7554ed);
+  color: white;
+  border: 1px solid transparent;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .3s;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 35px #9860ff38; }
+.btn-outline {
+  background: transparent;
+  border-color: var(--line);
+}
+.btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+.stats {
+  display: flex;
+  gap: 30px;
+  margin-top: 45px;
+  flex-wrap: wrap;
+}
+.stat strong {
+  display: block;
+  font-family: Orbitron, sans-serif;
+  font-size: 22px;
+}
+.stat span {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 7px;
 }
 
-.demo{
-  width:70%;
-  background:#111;
-  position:relative;
+/* 3D PORTAL */
+.portal {
+  position: relative;
+  height: 560px;
+  perspective: 1000px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+.portal-glow {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a66cff40, #50d9ff22);
+  filter: blur(70px);
+}
+.tunnel {
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  transform-style: preserve-3d;
+  transform: rotateX(12deg) rotateY(-15deg);
+}
+.tunnel-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--purple);
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0 15px #a66cff44, inset 0 0 15px #a66cff22;
+  animation: ringPulse 4s ease-in-out infinite alternate;
+}
+.tunnel-ring:nth-child(1) { width: 100%; height: 100%; border-color: var(--blue); }
+.tunnel-ring:nth-child(2) { width: 86%; height: 86%; transform: translate(-50%,-50%) rotateY(35deg); }
+.tunnel-ring:nth-child(3) { width: 72%; height: 72%; transform: translate(-50%,-50%) rotateY(65deg); }
+.tunnel-ring:nth-child(4) { width: 58%; height: 58%; transform: translate(-50%,-50%) rotateY(95deg); border-color: var(--blue); }
+.tunnel-ring:nth-child(5) { width: 44%; height: 44%; transform: translate(-50%,-50%) rotateY(125deg); }
+.tunnel-ring:nth-child(6) { width: 30%; height: 30%; transform: translate(-50%,-50%) rotateY(155deg); border-color: var(--blue); }
+.tunnel-ring:nth-child(7) { width: 100%; height: 58%; transform: translate(-50%,-50%) rotateX(65deg); border-color: #d09cff; }
+.tunnel-ring:nth-child(8) { width: 100%; height: 58%; transform: translate(-50%,-50%) rotateX(-65deg); }
+.portal-core {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, white, var(--blue) 18%, var(--purple) 55%, #27154f);
+  box-shadow: 0 0 30px var(--blue), 0 0 100px #9a53ff99, 0 0 180px #7b49ff44;
+  animation: coreBeat 3s ease-in-out infinite;
+}
+.portal-core::after {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 50%;
+}
+.portal-label {
+  position: absolute;
+  font-size: 9px;
+  color: var(--blue);
+  letter-spacing: 2px;
+}
+.portal-label.top { top: 8%; right: 0; }
+.portal-label.bottom { bottom: 10%; left: 0; color: var(--purple); }
+.portal-label.side { bottom: 25%; right: 0; color: #d6c5ff; }
+
+@keyframes ringPulse {
+  from { filter: brightness(.8); }
+  to { filter: brightness(1.6); }
+}
+@keyframes coreBeat {
+  0%,100% { transform: scale(.94); }
+  50% { transform: scale(1.08); }
 }
 
-iframe{
-  width:100%;
-  height:100vh;
-  border:none;
+/* TICKER */
+.ticker {
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+  background: #100e1b;
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 28s linear infinite;
+}
+.ticker-track span {
+  font-family: Orbitron, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 0 27px;
+  white-space: nowrap;
+}
+.ticker-track b { color: var(--blue); margin-right: 20px; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* GENERAL SECTIONS */
+section.content { padding: 105px 7%; }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 43px;
+}
+.section-head h2 {
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(30px, 4.7vw, 57px);
+  line-height: 1.15;
+  letter-spacing: -2px;
+  margin-top: 17px;
+}
+.section-head h2 span { color: var(--blue); }
+.section-head p {
+  max-width: 330px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
 }
 
-.right{
-  width:30%;
-  padding:30px 22px;
-  background:linear-gradient(180deg,#181a35,#0b0c18);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow-y:auto;
+/* WORKOUT CARDS */
+.workouts {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 17px;
+}
+.workout {
+  background: linear-gradient(145deg, #19172a, #100f19);
+  border: 1px solid var(--line);
+  padding: 25px;
+  min-height: 325px;
+  position: relative;
+  overflow: hidden;
+  transition: .35s;
+}
+.workout:hover {
+  transform: translateY(-7px);
+  border-color: var(--purple);
+}
+.workout::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -100px;
+  top: 90px;
+  border-radius: 50%;
+  background: var(--purple);
+  filter: blur(90px);
+  opacity: .25;
+}
+.workout-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--blue);
+  letter-spacing: 1.5px;
+}
+.workout-icon {
+  height: 155px;
+  display: grid;
+  place-items: center;
+  font-size: 75px;
+  color: var(--purple);
+  text-shadow: 0 0 35px #a66cff50;
+  transition: .4s;
+}
+.workout:hover .workout-icon { transform: scale(1.15) rotate(-8deg); color: var(--blue); }
+.workout h3 {
+  font-family: Orbitron, sans-serif;
+  font-size: 16px;
+  margin-bottom: 11px;
+}
+.workout p { font-size: 11px; color: var(--muted); line-height: 1.8; }
+
+/* IMMERSIVE BANNER */
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 85px 7%;
+  background:
+    radial-gradient(ellipse at 80% 50%, #6537aa35, transparent 50%),
+    #11101c;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.feature h2 {
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(34px, 5.4vw, 66px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin: 23px 0;
+}
+.feature h2 span { color: var(--purple); }
+.feature p { color: var(--muted); font-size: 12px; line-height: 1.9; max-width: 400px; }
+.feature .btn { margin-top: 25px; }
+.feature-art {
+  min-height: 350px;
+  display: grid;
+  place-items: center;
+  perspective: 900px;
+  position: relative;
+}
+.diamond {
+  width: 190px;
+  height: 190px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: diamondSpin 14s linear infinite;
+}
+.diamond-face {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--blue);
+  background: linear-gradient(135deg, #50d9ff17, #a66cff12);
+  box-shadow: inset 0 0 30px #50d9ff0b, 0 0 15px #50d9ff0b;
+}
+.diamond-face:nth-child(1) { transform: translateZ(95px); }
+.diamond-face:nth-child(2) { transform: rotateY(180deg) translateZ(95px); }
+.diamond-face:nth-child(3) { transform: rotateY(90deg) translateZ(95px); }
+.diamond-face:nth-child(4) { transform: rotateY(-90deg) translateZ(95px); }
+.diamond-face:nth-child(5) { transform: rotateX(90deg) translateZ(95px); }
+.diamond-face:nth-child(6) { transform: rotateX(-90deg) translateZ(95px); }
+.feature-art::before, .feature-art::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #a66cff66;
+  border-radius: 50%;
+  transform: rotateX(65deg);
+}
+.feature-art::after {
+  width: 350px;
+  height: 350px;
+  transform: rotateY(65deg);
+  border-color: #50d9ff66;
+}
+@keyframes diamondSpin {
+  to { transform: rotateX(360deg) rotateY(360deg) rotateZ(45deg); }
 }
 
-.box{
-  width:100%;
-  background:rgba(10,10,10,.88);
-  border:1px solid #d4af37;
-  border-radius:22px;
-  padding:26px 20px;
-  text-align:center;
-  box-shadow:0 0 35px rgba(212,175,55,.28);
+/* MEMBERSHIP */
+.memberships {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 17px;
 }
-
-.badge{
-  display:inline-block;
-  background:#d4af37;
-  color:#111;
-  padding:8px 18px;
-  border-radius:30px;
-  font-weight:800;
-  margin-bottom:16px;
+.plan {
+  padding: 31px 27px;
+  background: #12111f;
+  border: 1px solid var(--line);
+  position: relative;
 }
-
-h1{
-  font-size:34px;
-  color:#ffd86b;
-  margin-bottom:10px;
-  text-transform:uppercase;
+.plan.featured {
+  border-color: var(--purple);
+  background: linear-gradient(145deg, #291b43, #12111f 70%);
 }
-
-.sub{
-  font-size:17px;
-  line-height:1.5;
-  margin-bottom:22px;
-  color:#eee;
+.popular {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 9px;
+  font-weight: 800;
+  background: var(--purple);
+  padding: 7px 9px;
 }
-
-.features{
-  display:grid;
-  gap:12px;
-  margin:22px 0;
+.plan h3 { font-family: Orbitron, sans-serif; font-size: 15px; }
+.price {
+  font-family: Orbitron, sans-serif;
+  font-size: 39px;
+  margin-top: 22px;
 }
+.price small { font-family: Inter, sans-serif; font-size: 11px; color: var(--muted); }
+.plan-desc { color: var(--muted); font-size: 11px; margin: 12px 0 24px; }
+.plan ul { list-style: none; padding-top: 22px; border-top: 1px solid var(--line); min-height: 155px; }
+.plan li { color: #c5c1d6; font-size: 11px; margin-bottom: 15px; }
+.plan li::before { content: "✦"; color: var(--blue); margin-right: 10px; }
+.plan .btn { width: 100%; }
 
-.feature{
-  background:linear-gradient(90deg,#1b1b1b,#2b2208);
-  border:1px solid rgba(212,175,55,.55);
-  padding:14px;
-  border-radius:14px;
-  font-size:17px;
-  font-weight:700;
+/* BMI */
+.bmi-section { background: #100f19; border-block: 1px solid var(--line); }
+.bmi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
 }
-
-.feature span{
-  color:#ffd86b;
+.bmi-copy h2 {
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(36px, 5.2vw, 62px);
+  line-height: 1.1;
+  margin: 20px 0;
 }
-
-/* Signup Button */
-.signup-btn{
-  display:inline-block;
-  margin-top:8px;
-  padding:9px 16px;
-  background:#25D366;
-  color:#fff;
-  text-decoration:none;
-  border-radius:9px;
-  font-size:15px;
-  font-weight:800;
-  border:1px solid #1ebe5d;
-  transition:.3s;
+.bmi-copy h2 span { color: var(--blue); }
+.bmi-copy p { color: var(--muted); font-size: 12px; line-height: 1.9; max-width: 390px; }
+.bmi-form { padding: 30px; border: 1px solid var(--line); background: #151321; }
+.field { margin-bottom: 20px; }
+.field label { display: block; color: #c8c4d9; font-size: 11px; margin-bottom: 10px; }
+.field input {
+  width: 100%;
+  background: #0d0c16;
+  color: white;
+  border: 1px solid #39354c;
+  outline: none;
+  padding: 15px;
 }
-
-.signup-btn:hover{
-  background:#1ebe5d;
-  transform:scale(1.03);
+.field input:focus { border-color: var(--blue); }
+.result {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #50d9ff66;
+  background: #50d9ff0a;
 }
+.result strong { font-family: Orbitron, sans-serif; font-size: 32px; color: var(--blue); }
+.result p { font-size: 12px; line-height: 1.8; color: #c5c1d6; margin-top: 8px; }
 
-.website-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-top:16px;
-  font-size:14px;
-  font-weight:bold;
+/* FOOTER */
+footer { padding: 60px 7% 25px; }
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
 }
-
-.website-row a{
-  text-decoration:none;
+.footer-about { max-width: 280px; }
+.footer-about p { color: var(--muted); font-size: 12px; line-height: 1.9; margin-top: 15px; }
+.footer-links h4 { color: var(--blue); font-size: 10px; letter-spacing: 1.5px; margin-bottom: 18px; }
+.footer-links a { display: block; color: #b5b1c9; font-size: 12px; margin-bottom: 13px; }
+.footer-links a:hover { color: var(--purple); }
+.footer-bottom {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  color: #77738b;
+  font-size: 10px;
 }
+.reveal { opacity: 0; transform: translateY(25px); transition: opacity .8s, transform .8s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
-.website{
-  color:#25D366;
-}
-
-.whatsapp-small{
-  color:#ffd86b;
-}
-
-.cta{
-  display:block;
-  background:#25D366;
-  color:#fff;
-  text-decoration:none;
-  padding:17px;
-  border-radius:16px;
-  font-size:20px;
-  font-weight:900;
-  margin-top:22px;
-  box-shadow:0 8px 18px rgba(37,211,102,.35);
-  transition:.3s;
-}
-
-.cta:hover{
-  transform:scale(1.03);
-  background:#1ebe5d;
-}
-
-/* Floating Signup Button */
-.floating-signup{
-  position:absolute;
-  top:20px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:50;
-  background:#ff1744;
-  color:#fff;
-  padding:12px 24px;
-  border-radius:8px;
-  font-size:18px;
-  font-weight:900;
-  border:3px solid #fff;
-  cursor:pointer;
-  box-shadow:0 8px 20px rgba(255,23,68,0.6);
-  transition:.3s;
-  text-decoration:none;
-  display:inline-block;
-}
-
-.floating-signup:hover{
-  transform:translateX(-50%) scale(1.08);
-  background:#ff5722;
-  box-shadow:0 12px 25px rgba(255,23,68,0.8);
-}
-
-.trust{
-  margin-top:16px;
-  color:#ccc;
-  font-size:14px;
-  line-height:1.5;
-}
-
-.footer{
-  margin-top:18px;
-  font-size:12px;
-  color:#aaa;
-  line-height:1.5;
-}
-
-.bonus-popup{
-  position:fixed;
-  inset:0;
-  z-index:100;
-  display:grid;
-  place-items:center;
-  padding:20px;
-  background:rgba(0,0,0,.78);
-}
-
-.bonus-popup[hidden]{
-  display:none;
-}
-
-.bonus-dialog{
-  position:relative;
-  width:min(100%,420px);
-  padding:34px 24px 28px;
-  border:2px solid #d4af37;
-  border-radius:16px;
-  background:linear-gradient(145deg,#24210f,#111218 70%);
-  text-align:center;
-  box-shadow:0 18px 60px rgba(0,0,0,.65);
-  animation:popup-enter .24s ease-out;
-}
-
-.bonus-close{
-  position:absolute;
-  top:8px;
-  right:12px;
-  border:0;
-  background:transparent;
-  color:#ddd;
-  font-size:28px;
-  line-height:1;
-  cursor:pointer;
-}
-
-.bonus-dialog h2{
-  margin-bottom:10px;
-  color:#ffd86b;
-  font-size:30px;
-}
-
-.bonus-dialog p{
-  margin-bottom:22px;
-  color:#eee;
-  line-height:1.5;
-}
-
-.bonus-claim{
-  display:block;
-  padding:14px 18px;
-  border-radius:8px;
-  background:#25D366;
-  color:#fff;
-  font-size:17px;
-  font-weight:800;
-  text-decoration:none;
-}
-
-.bonus-claim:hover{
-  background:#1ebe5d;
-}
-
-@keyframes popup-enter{
-  from{opacity:0;transform:translateY(10px) scale(.97)}
-  to{opacity:1;transform:translateY(0) scale(1)}
-}
-
-@media(prefers-reduced-motion:reduce){
-  .bonus-dialog{animation:none}
-}
-
-@media(max-width:768px){
-  .container{
-    flex-direction:column-reverse;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
   }
-
-  .demo,
-  .right{
-    width:100%;
-  }
-
-  iframe{
-    height:500px;
-  }
-
-  .right{
-    padding:20px;
-  }
+  .reveal { opacity: 1; transform: none; }
 }
 
-@media(max-width:480px){
-  h1{
-    font-size:28px;
+@media(max-width:900px) {
+  .hero { grid-template-columns: 1fr; padding-top: 145px; }
+  .hero-copy { text-align: center; }
+  .hero-copy .eyebrow, .actions { justify-content: center; }
+  .hero-copy p { margin-left: auto; margin-right: auto; }
+  .stats { justify-content: center; }
+  .portal { height: 450px; }
+  .workouts, .memberships { grid-template-columns: repeat(2,1fr); }
+  .workout:last-child, .plan:last-child { grid-column: 1/-1; }
+  .feature, .bmi-grid { grid-template-columns: 1fr; }
+  .section-head { align-items: flex-start; flex-direction: column; }
+}
+@media(max-width:600px) {
+  header { height: 70px; padding: 0 5%; }
+  .logo { font-size: 20px; }
+  .menu-btn { display: block; }
+  .nav {
+    display: none;
+    position: absolute;
+    top: 69px; left: 0; right: 0;
+    padding: 24px 6%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    background: #12111f;
+    border-bottom: 1px solid var(--line);
   }
-
-  .sub{
-    font-size:16px;
-  }
-
-  .feature{
-    font-size:16px;
-    padding:12px;
-  }
-
-  .signup-btn{
-    font-size:14px;
-    padding:8px 13px;
-  }
-
-  .cta{
-    font-size:18px;
-    padding:15px;
-  }
-
-  .website-row{
-    flex-direction:column;
-    gap:8px;
-  }
+  .nav.open { display: flex; }
+  .nav .nav-cta { text-align: center; }
+  .hero { padding: 125px 5% 35px; }
+  .hero h1 { font-size: clamp(43px, 11vw, 65px); letter-spacing: -3px; }
+  .portal { height: 340px; transform: scale(.78); margin: -5px -40px; }
+  section.content { padding: 75px 5%; }
+  .workouts, .memberships { grid-template-columns: 1fr; }
+  .workout:last-child, .plan:last-child { grid-column: auto; }
+  .feature { padding: 75px 5%; gap: 10px; }
+  .feature-art { transform: scale(.8); margin: -15px 0; }
+  .bmi-grid { gap: 30px; }
+  .bmi-form { padding: 22px; }
+  footer { padding: 45px 5% 22px; }
 }
 </style>
-
 </head>
 
 <body>
+<div class="ambient" id="ambient"></div>
 
-<div class="bonus-popup" id="bonusPopup" role="dialog" aria-modal="true" aria-labelledby="bonusTitle">
-  <div class="bonus-dialog">
-    <button class="bonus-close" id="bonusClose" type="button" aria-label="Close bonus popup">&times;</button>
-    <h2 id="bonusTitle">Claim 10% Bonus</h2>
-    <p>Sign up now and get started with the deposit bonus.</p>
-    <a class="bonus-claim" href="http://www.multicric.com/?code=161sky">🔥 Claim Bonus &amp; Sign Up</a>
+<header>
+  <a href="#home" class="logo">PULSE<span>5D</span></a>
+  <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  <nav class="nav" id="nav">
+    <a href="#training">Training</a>
+    <a href="#experience">Experience</a>
+    <a href="#membership">Membership</a>
+    <a href="#bmi">BMI Tool</a>
+    <a href="#membership" class="nav-cta">Join The Pulse ↗</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <div class="eyebrow">Fitness. Reimagined.</div>
+    <h1>ENTER THE<span class="gradient">NEXT</span><span class="outline">DIMENSION.</span></h1>
+    <p>
+      Step into a new era of training. Discover immersive workouts,
+      next-level equipment and a community designed to keep you moving forward.
+    </p>
+    <div class="actions">
+      <a href="#membership" class="btn">Explore Membership ↗</a>
+      <a href="#training" class="btn btn-outline">Discover Training</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>24/7</strong><span>Gym Access</span></div>
+      <div class="stat"><strong>35+</strong><span>Weekly Classes</span></div>
+      <div class="stat"><strong>01</strong><span>New You</span></div>
+    </div>
+  </div>
+
+  <div class="portal" id="portal">
+    <div class="portal-glow"></div>
+    <div class="tunnel">
+      <div class="tunnel-ring"></div>
+      <div class="tunnel-ring"></div>
+      <div class="tunnel-ring"></div>
+      <div class="tunnel-ring"></div>
+      <div class="tunnel-ring"></div>
+      <div class="tunnel-ring"></div>
+      <div class="tunnel-ring"></div>
+      <div class="tunnel-ring"></div>
+    </div>
+    <div class="portal-core"></div>
+    <div class="portal-label top">PULSE ENGINE / 005</div>
+    <div class="portal-label bottom">MOTION REDEFINED</div>
+    <div class="portal-label side">SYSTEM ONLINE ↗</div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span><b>✦</b> TRAIN DIFFERENT</span>
+    <span><b>✦</b> FIND YOUR FREQUENCY</span>
+    <span><b>✦</b> BUILD YOUR POWER</span>
+    <span><b>✦</b> BREAK YOUR LIMITS</span>
+    <span><b>✦</b> TRAIN DIFFERENT</span>
+    <span><b>✦</b> FIND YOUR FREQUENCY</span>
+    <span><b>✦</b> BUILD YOUR POWER</span>
+    <span><b>✦</b> BREAK YOUR LIMITS</span>
   </div>
 </div>
 
-<div class="container">
-
-  <div class="demo">
-    <a href="http://www.multicric.com/?code=266ice" target="_blank" rel="noopener noreferrer" class="floating-signup">🔥 CLICK ON SIGNUP 🔥</a>
-    <iframe src="http://www.multicric.com/?code=266ice"></iframe>
+<section class="content" id="training">
+  <div class="section-head reveal">
+    <div>
+      <div class="eyebrow">Choose your mode</div>
+      <h2>FIND YOUR<br><span>FREQUENCY.</span></h2>
+    </div>
+    <p>Training that fits your ambition. Build strength, improve endurance and move with more confidence.</p>
   </div>
 
-  <div class="right">
-    <div class="box">
+  <div class="workouts">
+    <article class="workout reveal">
+      <div class="workout-top"><span>MODE 001</span><span>STRENGTH</span></div>
+      <div class="workout-icon" aria-hidden="true">◈</div>
+      <h3>POWER LAB</h3>
+      <p>Build strength with structured resistance sessions, expert guidance and progressive training.</p>
+    </article>
+    <article class="workout reveal">
+      <div class="workout-top"><span>MODE 002</span><span>ENERGY</span></div>
+      <div class="workout-icon" aria-hidden="true">ϟ</div>
+      <h3>PULSE HIIT</h3>
+      <p>High-energy intervals designed to challenge your stamina, coordination and conditioning.</p>
+    </article>
+    <article class="workout reveal">
+      <div class="workout-top"><span>MODE 003</span><span>RECOVERY</span></div>
+      <div class="workout-icon" aria-hidden="true">⌁</div>
+      <h3>FLOW STATE</h3>
+      <p>Focus on mobility, flexibility and recovery to support a more balanced training routine.</p>
+    </article>
+  </div>
+</section>
 
-  <div class="badge">AUTO WEBSITE</div>
+<section class="feature" id="experience">
+  <div class="reveal">
+    <div class="eyebrow">Beyond the ordinary</div>
+    <h2>YOUR BODY.<br><span>YOUR UNIVERSE.</span></h2>
+    <p>
+      Your journey deserves more than routine. Train in an inspiring
+      environment with carefully selected equipment, supportive coaching
+      and space to focus on your progress.
+    </p>
+    <a href="#membership" class="btn">Activate Your Membership ↗</a>
+  </div>
+  <div class="feature-art" aria-hidden="true">
+    <div class="diamond">
+      <div class="diamond-face"></div>
+      <div class="diamond-face"></div>
+      <div class="diamond-face"></div>
+      <div class="diamond-face"></div>
+      <div class="diamond-face"></div>
+      <div class="diamond-face"></div>
+    </div>
+  </div>
+</section>
 
-  <h1>Get Your ID Now</h1>
+<section class="content" id="membership">
+  <div class="section-head reveal">
+    <div>
+      <div class="eyebrow">Select your access level</div>
+      <h2>YOUR NEXT<br><span>STARTS HERE.</span></h2>
+    </div>
+    <p>Choose the membership that suits your goals. These sample prices can be edited for your real gym.</p>
+  </div>
 
-  <p class="sub">
-    Fast auto website service with easy deposit support.
-    New users can start quickly through WhatsApp.
-  </p>
+  <div class="memberships">
+    <article class="plan reveal">
+      <h3>ESSENTIAL</h3>
+      <div class="price">$29<small> / month</small></div>
+      <p class="plan-desc">Your first step into the Pulse.</p>
+      <ul>
+        <li>Gym floor access</li>
+        <li>Strength equipment</li>
+        <li>Locker facilities</li>
+        <li>Introductory orientation</li>
+      </ul>
+      <a class="btn btn-outline" href="mailto:hello@yourgym.com?subject=Essential%20Membership">Choose Essential ↗</a>
+    </article>
 
-  <div class="features">
+    <article class="plan featured reveal">
+      <span class="popular">MOST POPULAR</span>
+      <h3>ADVANCED</h3>
+      <div class="price">$59<small> / month</small></div>
+      <p class="plan-desc">For the consistently ambitious.</p>
+      <ul>
+        <li>Everything in Essential</li>
+        <li>Group training classes</li>
+        <li>Monthly progress review</li>
+        <li>Guest access pass</li>
+      </ul>
+      <a class="btn" href="mailto:hello@yourgym.com?subject=Advanced%20Membership">Choose Advanced ↗</a>
+    </article>
 
-    <div class="feature">
-      Minimum Deposit: <span>₹100 Only</span>
+    <article class="plan reveal">
+      <h3>INFINITE</h3>
+      <div class="price">$99<small> / month</small></div>
+      <p class="plan-desc">A personalized training experience.</p>
+      <ul>
+        <li>Everything in Advanced</li>
+        <li>Personal coaching session</li>
+        <li>Priority class booking</li>
+        <li>Personalized workout plan</li>
+      </ul>
+      <a class="btn btn-outline" href="mailto:hello@yourgym.com?subject=Infinite%20Membership">Choose Infinite ↗</a>
+    </article>
+  </div>
+</section>
+
+<section class="content bmi-section" id="bmi">
+  <div class="bmi-grid">
+    <div class="bmi-copy reveal">
+      <div class="eyebrow">Understand your baseline</div>
+      <h2>DATA MEETS<br><span>DEDICATION.</span></h2>
+      <p>
+        Check your Body Mass Index as a general health reference.
+        BMI does not distinguish muscle from fat and should not be used
+        alone to assess your fitness or health.
+      </p>
     </div>
 
-    <div class="feature">
-      Welcome Bonus: <span>10%</span>
+    <form class="bmi-form reveal" id="bmiForm">
+      <div class="field">
+        <label for="height">HEIGHT (CM)</label>
+        <input id="height" type="number" min="80" max="250" placeholder="Example: 175" required>
+      </div>
+      <div class="field">
+        <label for="weight">WEIGHT (KG)</label>
+        <input id="weight" type="number" min="20" max="400" step="0.1" placeholder="Example: 75" required>
+      </div>
+      <button class="btn" type="submit" style="width:100%">Calculate BMI ↗</button>
+      <div class="result" id="result" aria-live="polite">
+        <strong id="bmiNumber">--</strong>
+        <p id="bmiMessage"></p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-about">
+      <a href="#home" class="logo">PULSE<span>5D</span></a>
+      <p>Train with purpose. Move with confidence. Discover your next dimension at Pulse 5D.</p>
     </div>
-
-    <div class="feature">
-      Auto Website Support:
-      <a
-        class="signup-btn"
-        href="http://www.multicric.com/?code=266ice"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Click on Signup
-      </a>
+    <div class="footer-links">
+      <h4>DISCOVER</h4>
+      <a href="#training">Training Programs</a>
+      <a href="#experience">Our Experience</a>
+      <a href="#membership">Membership Plans</a>
     </div>
-
-    <div class="feature">
-      Quick Help:
-      <span>Deposit &amp; Withdrawal Support</span>
+    <div class="footer-links">
+      <h4>CONNECT</h4>
+      <a href="mailto:hello@yourgym.com">Contact Us</a>
+      <a href="#bmi">BMI Calculator</a>
+      <a href="#home">Back to Top ↑</a>
     </div>
-
   </div>
-
-  <div class="website-row">
-
-    <a
-      class="website"
-      href="http://www.multicric.com/?code=266ice"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      🌐 http://www.multicric.com/?code=266ice
-    </a>
-
-    <a
-      class="whatsapp-small"
-      href="https://wa.me/+447523709988"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      💬 WhatsApp
-    </a>
-
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> PULSE 5D FITNESS. ALL RIGHTS RESERVED.</span>
+    <span>FIND YOUR FREQUENCY.</span>
   </div>
-
-  <a
-    class="cta"
-    href="https://wa.me/+447523709988?text=Hello%20I%20want%20new%20multicric%20ID"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    📲 WhatsApp Now
-  </a>
-
-  <p class="trust">
-    ✅ Trusted multicric Support<br>
-    ✅ Simple Process<br>
-    ✅ Fast Response
-  </p>
-
-  <div class="footer">
-    18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
-  </div>
-
-</div>
-
-  </div>
-
-</div>
+</footer>
 
 <script>
-const bonusPopup = document.getElementById('bonusPopup');
-const bonusClose = document.getElementById('bonusClose');
+// Mobile navigation
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
 
-function closeBonusPopup(){
-  bonusPopup.hidden = true;
+menuBtn.addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  menuBtn.textContent = open ? "✕" : "☰";
+  menuBtn.setAttribute("aria-expanded", String(open));
+});
+
+nav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    menuBtn.textContent = "☰";
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
+});
+
+// Current year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+// Mouse-reactive portal and ambient light
+const portal = document.getElementById("portal");
+const tunnel = document.querySelector(".tunnel");
+const ambient = document.getElementById("ambient");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (!reducedMotion && window.matchMedia("(pointer: fine)").matches) {
+  document.addEventListener("mousemove", event => {
+    ambient.style.left = (event.clientX - 150) + "px";
+    ambient.style.top = (event.clientY - 150) + "px";
+  });
+
+  portal.addEventListener("mousemove", event => {
+    const rect = portal.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    tunnel.style.transform =
+      `rotateX(${12 - y * 18}deg) rotateY(${-15 + x * 22}deg)`;
+  });
+
+  portal.addEventListener("mouseleave", () => {
+    tunnel.style.transform = "";
+  });
 }
 
-bonusClose.addEventListener('click', closeBonusPopup);
-bonusPopup.addEventListener('click', (event) => {
-  if(event.target === bonusPopup) closeBonusPopup();
-});
-document.addEventListener('keydown', (event) => {
-  if(event.key === 'Escape') closeBonusPopup();
+// BMI calculator
+document.getElementById("bmiForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const height = Number(document.getElementById("height").value);
+  const weight = Number(document.getElementById("weight").value);
+
+  if (height < 80 || height > 250 || weight < 20 || weight > 400) return;
+
+  const bmi = weight / ((height / 100) ** 2);
+  let category;
+
+  if (bmi < 18.5) {
+    category = "Below the usual adult BMI range.";
+  } else if (bmi < 25) {
+    category = "Within the usual adult BMI range.";
+  } else if (bmi < 30) {
+    category = "Above the usual adult BMI range.";
+  } else {
+    category = "In a higher adult BMI category.";
+  }
+
+  document.getElementById("bmiNumber").textContent = bmi.toFixed(1);
+  document.getElementById("bmiMessage").textContent =
+    category + " BMI is a screening measure, not a diagnosis, and may not reflect muscularity or individual health.";
+  document.getElementById("result").style.display = "block";
 });
 </script>
-
 </body>
 </html>
+```
